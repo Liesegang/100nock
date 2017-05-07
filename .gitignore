@@ -3,3 +3,5 @@
 *.mecab
 *.svg
 *.json
+__pycache__*
+r16m_*
