@@ -12,9 +12,9 @@ class Chunk:
         self.dst = dst
         self.srcs = srcs
     def __str__(self):
-        return "dst: {},\tsrcs: {},\t morphs:\n{}".format(self.dst, str(self.srcs), ",".join(['{' + str(m) + '}\n' for m in self.morphs]))
+        return "".join([m.surface for m in self.morphs])
     def __repr__(self):
-        return self.__str__()
+        return "dst: {},\tsrcs: {},\t morphs:\n{}".format(self.dst, str(self.srcs), ",".join(['{' + str(m) + '}\n' for m in self.morphs]))
 
 def chunks_in_line():
     with open(s5.source) as source:
@@ -41,9 +41,8 @@ def chunks_in_line():
                 prop = word[1].split(',')
                 r.append(Morph(word[0], prop[6],prop[0], prop[1]))
 
-r = []
-
-for chunk in chunks_in_line():
-    r.append(chunk)
-
-print(str(r[3]))
+if __name__  == "__main__":
+    r = []
+    for chunk in chunks_in_line():
+        r.append(chunk)
+    print(str(r[3]))
